@@ -1,0 +1,35 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  oddNumbers:number[]=[];
+  evenNumbers:number[]=[];
+
+  onIntervalFired(firedNumber :number) //from template expexting an input from it
+  {
+    if (firedNumber % 2===0){
+      this.evenNumbers.push(firedNumber);
+    }
+    else{
+      this.oddNumbers.push(firedNumber);
+    }
+    
+  }
+
+  server = [];
+
+  onAddServer(){
+    this.server.push('server')
+  }
+
+  onRemoveServer(id :number){
+    const possition =id ;
+    this.server.splice(possition , 1);
+
+
+  }
+}

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-7">
+      <h2>MY server</h2>
+      <button class="btn btn-primary" (click) ="onAddServer()">Add Server</button>
+      
+ <br><br>
+ <ul class="list-group">
+   <li class="list-group-item"
+   *ngFor ="let serv of server; let i =index"
+   (click) ="onRemoveServer(i)">{{ server }}</li>
+ </ul>
+ 
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Bind It</h3>
+      <ol>
+        <li>Create new components: gamecontrol ,odd and even</li>
+        <li>The game control should have buttun to start and to stop</li>
+        <li>When starting the game ,an even (holding an increamenting) should get emitted each second (ref =setinterval()) </li>
+         <li>The event should be listenable from the outside component</li>
+         <li>When stopping the game, no more event should get emitted (clear interval(ref))</li>
+         <li>A new odd component should get created for every odd number emitted ,
+           the same should happen for even component (on even number) </li>
+          <li>Simply output Odd -number or even- number in the two components</li>
+          <li>Style the element (e.g paragraph) holding your output text differently in both componets</li> 
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control (intervalFired) ="onIntervalFired($event)"></app-game-control>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-odd *ngFor="let oddNumber of oddNumbers" [number] ="oddNumber"></app-odd>
+      <app-even *ngFor="let evenNumber of evenNumbers" [number] ="evenNumber"></app-even>
+    
+    </div>
+  </div>
+</div>
+
